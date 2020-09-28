@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  organizer: MyText
+  description: MyText
+  type: MyText
+  category: MyText
+  tags: MyText
+  datestart: 2020-09-28
+  dateend: 2020-09-28
+  timestart: 2020-09-28 14:50:45
+  timeend: 2020-09-28 14:50:45
+  attendees: 1
+  location: MyString
+  image: MyString
+  link: MyString
+
+two:
+  name: MyText
+  organizer: MyText
+  description: MyText
+  type: MyText
+  category: MyText
+  tags: MyText
+  datestart: 2020-09-28
+  dateend: 2020-09-28
+  timestart: 2020-09-28 14:50:45
+  timeend: 2020-09-28 14:50:45
+  attendees: 1
+  location: MyString
+  image: MyString
+  link: MyString
