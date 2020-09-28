@@ -4,12 +4,45 @@
     <title>PrivateEvents</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <nav class="be-red white large-padding">
+        <ul class="no-list row center-xs">
+          <li class="col-md">
+            <h1 class="no-margin" >Private Events</h1>
+          </li>
+          <li class="col-md">
+            <%= link_to "All", root_path%>
+          </li>
+          <li class="col-md">
+            For you
+          </li>
+          <li class="col-md">
+            Today
+          </li>
+          <li class="col-md">
+            This weekend
+          </li>
+          <li class="col-md">
+            Free
+          </li>
+          <li class="col-md">
+            Music
+          </li>
+          <li class="col-md">
+            Food & Drink
+          </li>
+          <li class="col-md">
+            Charity & Causes
+          </li>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
