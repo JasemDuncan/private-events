@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 2.7'
 # Add Rubocop
 gem 'rubocop', '~>0.81.0'
 
+#Add Hirb
+gem 'hirb'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

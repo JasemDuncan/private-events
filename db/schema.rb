@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_145929) do
+ActiveRecord::Schema.define(version: 2020_09_29_163041) do
 
-  create_table "events", force: :cascade do |t|
+  create_table "Events", force: :cascade do |t|
     t.text "name"
     t.text "organizer"
     t.text "description"
-    t.text "type"
+    t.text "typeof"
     t.text "category"
     t.text "tags"
     t.date "datestart"
