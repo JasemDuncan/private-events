@@ -1,0 +1,50 @@
+<div style="width:80%; margin:0 auto;">
+    <h1>Create Event</h1>
+    <%=form_for(@event)do |f|%>
+        <div class="field">
+            <%= f.text_field :name, placeholder: "Name", class:"form-control" %>
+        </div>
+        <div class="field">
+            <%= f.text_field :organizer, placeholder: "Organizer", class:"form-control"%>
+        </div>
+        <div class="field">
+            <%= f.text_field :description, placeholder: "Description", class:"form-control"%>
+        </div>
+        <div class="field">
+            <%= f.text_field :typeof, placeholder: "Type", class:"form-control"%>
+        </div>
+        <div class="field">
+            <%= f.text_field :category, placeholder: "Category", class:"form-control"%>
+        </div>
+        <div class="field">
+            <%= f.text_field :tags, placeholder: "Tag", class:"form-control"%>
+        </div>
+        <div class="field">
+            <%= f.text_field :datestart, placeholder: "Date Start YYYYMMDD", class:"form-control"%>
+        </div>
+        <div class="field">
+            <%= f.text_field :dateend, placeholder: "Date End YYYYMMDD", class:"form-control"%>
+        </div>
+        <div class="field">
+            <%= f.text_field :timestart, placeholder: "Start Time HH:MM:SS", class:"form-control"%>
+        </div>
+        <div class="field">
+            <%= f.text_field :timeend, placeholder: "End Time HH:MM:SS", class:"form-control"%>
+        </div>
+        <div class="field">
+            <%= f.text_field :attendees, placeholder: "Attendees", class:"form-control"%>
+        </div>
+        <div class="field">
+            <%= f.text_field :location, placeholder: "Location", class:"form-control"%>
+        </div>
+        <div class="field">
+            <%= f.text_field :image, placeholder: "image", class:"form-control"%>
+        </div>
+        <div class="field">
+            <%= f.text_field :link, placeholder: "link", class:"form-control"%>
+        </div>
+        <div class="field">
+            <%= f.submit "Save", class:" btn be-red  white"%>
+        </div>
+    <%end%>
+</div>
