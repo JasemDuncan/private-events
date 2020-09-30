@@ -1,6 +1,11 @@
 <div style="width:80%; margin:0 auto;">
     <h1>Create Event</h1>
     <%=form_for(@event)do |f|%>
+        <% @event.errors.full_messages.each do |message| %>
+            <div class="be-red white top-space">
+                * <%= message%>.
+            </div>
+        <%end%>
         <div class="field">
             <%= f.text_field :name, placeholder: "Name", class:"form-control" %>
         </div>

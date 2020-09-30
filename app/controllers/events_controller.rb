@@ -22,8 +22,11 @@ class EventsController < ApplicationController
             attendees: params[:event][:attendeees], location: params[:event][:location],
             location: params[:event][:location], image: params[:event][:image],
             link: params[:event][:link])
-        @event.save
-        redirect_to @event
-
+        
+        if @event.save
+            redirect_to @event
+        else    
+            render :new
+        end
     end
 end
