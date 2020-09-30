@@ -12,4 +12,18 @@ class EventsController < ApplicationController
     def new
         @event=Event.new
     end
+    #POST /events
+    def create
+        @event=Event.new(name: params[:event][:name], organizer: params[:event][:organizer], 
+            description: params[:event][:description], typeof: params[:event][:typeof],
+            category: params[:event][:category], tags: params[:event][:tags],
+            datestart: params[:event][:datestart], dateend: params[:event][:dateend],
+            timestart: params[:event][:timestart], timeend: params[:event][:timeend],
+            attendees: params[:event][:attendeees], location: params[:event][:location],
+            location: params[:event][:location], image: params[:event][:image],
+            link: params[:event][:link])
+        @event.save
+        redirect_to @event
+
+    end
 end

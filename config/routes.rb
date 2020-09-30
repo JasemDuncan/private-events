@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :events  
   # only: [:edit, :update, :show, :destory]
   # except:[delete]
+  
   # get "/events" index
   # post "/events" create
   # delete"/events/:id" delete
