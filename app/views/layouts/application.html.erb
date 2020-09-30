@@ -40,9 +40,16 @@
           <li class="col-md">
             Charity & Causes
           </li>
+          <% if u_signed_in?%>
+            <li class="col-md">
+              <%= link_to "Sign Out", destroy_u_session_path, method: :delete%>
+            </li>
+          <%end%>
         </ul>
       </nav>
     </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

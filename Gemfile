@@ -31,6 +31,9 @@ gem 'rubocop', '~>0.81.0'
 #Add Hirb
 gem 'hirb'
 
+#Add devise/bundle install/ rails g devise:install/ rails g devise User
+gem "devise"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

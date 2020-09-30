@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :us
+  devise_for :users
   resources :events  
   # only: [:edit, :update, :show, :destory]
   # except:[delete]

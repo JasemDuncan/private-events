@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_163041) do
+ActiveRecord::Schema.define(version: 2020_09_30_220851) do
 
   create_table "Events", force: :cascade do |t|
     t.text "name"
@@ -31,10 +31,33 @@ ActiveRecord::Schema.define(version: 2020_09_29_163041) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "us", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "name"
+    t.string "permission_level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_us_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_us_on_reset_password_token", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.text "mail"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "name"
+    t.string "permission_level"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
