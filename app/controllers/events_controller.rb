@@ -12,7 +12,11 @@ class EventsController < ApplicationController
     #GET /events/new
     def new
         @event=Event.new
-    end    
+    end
+    
+    def edit
+        @event=Event.find(params[:id])
+    end
     #POST /events
     def create
         #INSERT INTO
@@ -35,6 +39,12 @@ class EventsController < ApplicationController
     def update
         #UPDATE
         #@event.update_attributes({name: 'New name event'})
+        @event=Event.find(params[:id])
+        if @event.update(article_params)
+            redirect_to @event
+        else
+            render :edit
+        end
     end
 
     private
