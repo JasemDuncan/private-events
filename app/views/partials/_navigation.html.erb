@@ -1,0 +1,45 @@
+<header>
+      <nav class="be-red white large-padding">
+        <ul class="no-list row center-xs middle-xs">
+          <li class="col-md">
+            <h1 class="no-margin" id="logo" >Private Events</h1>
+          </li>
+          <li class="col-md">
+            <%= link_to "All", root_path%>
+          </li>
+          <li class="col-md">
+            For you
+          </li>
+          <li class="col-md">
+            Today
+          </li>
+          <li class="col-md">
+            This weekend
+          </li>
+          <li class="col-md">
+            Free
+          </li>
+          <li class="col-md">
+            Music
+          </li>
+          <li class="col-md">
+            Food & Drink
+          </li>
+          <li class="col-md">
+            Charity & Causes
+          </li>
+          <% if u_signed_in?%>
+            <li class="col-md">
+              <%= link_to "Sign Out", destroy_u_session_path, method: :delete%>
+            </li>
+          <%else%>
+            <li class="col-md">
+              <%= link_to "Log In", new_u_session_path%>
+            </li>
+            <li class="col-md">
+              <%= link_to "Sign Up", new_u_registration_path%>
+            </li>         
+          <%end%>
+        </ul>
+      </nav>
+    </header>
