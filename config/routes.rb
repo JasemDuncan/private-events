@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   # get "/events" index
   # post "/events" create
-  # delete"/events/:id" delete
+  # delete"/events/:id" delete destroy
   # get "/events/:id" show
   # get "/events/new" new
   # get "/events/:id/edit" edit
