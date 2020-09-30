@@ -16,14 +16,7 @@ class EventsController < ApplicationController
     #POST /events
     def create
         #INSERT INTO
-        @event=Event.new(name: params[:event][:name], organizer: params[:event][:organizer], 
-            description: params[:event][:description], typeof: params[:event][:typeof],
-            category: params[:event][:category], tags: params[:event][:tags],
-            datestart: params[:event][:datestart], dateend: params[:event][:dateend],
-            timestart: params[:event][:timestart], timeend: params[:event][:timeend],
-            attendees: params[:event][:attendeees], location: params[:event][:location],
-            location: params[:event][:location], image: params[:event][:image],
-            link: params[:event][:link])
+        @event=Event.new(article_params)
         
         if @event.save
             redirect_to @event
@@ -42,5 +35,10 @@ class EventsController < ApplicationController
     def update
         #UPDATE
         #@event.update_attributes({name: 'New name event'})
+    end
+
+    private
+    def article_params
+        params.require(:event).permit(:name, :organizer, :description, :typeof, :category, :tags, :datestart, :dateend, :timestart, :timeend, :attendees, :location, :image, :link)
     end
 end
