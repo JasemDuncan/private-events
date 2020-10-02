@@ -34,6 +34,9 @@ gem 'hirb'
 #Add devise/bundle install/ rails g devise:install/ rails g devise User
 gem "devise"
 
+#Add paperclicp for put images
+gem "paperclip"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
