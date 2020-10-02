@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-    before_action :authenticate_user!, except: [:show, :index]
+    before_action :authenticate_u!, except: [:show, :index]
     before_action :set_event, except: [:index,:new, :create]
     #GET /events
     def index
@@ -56,6 +56,6 @@ class EventsController < ApplicationController
     end
 
     def article_params
-        params.require(:event).permit(:name, :organizer, :description, :typeof, :category, :tags, :datestart, :dateend, :timestart, :timeend, :attendees, :location, :image, :link)
+        params.require(:event).permit(:name, :organizer, :description, :typeof, :category, :tags, :datestart, :dateend, :timestart, :timeend, :attendees, :location, :image, :link, :cover)
     end
 end

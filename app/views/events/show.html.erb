@@ -4,6 +4,9 @@
     Event created by <%= @event.usevents%>
 </p>
 <% end %>
+<div class="field">
+    <%= image_tag @event.cover.url(:thumb)%>
+</div>
 <div>
     <%= @event.organizer%>
 </div>
