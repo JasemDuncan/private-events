@@ -3,4 +3,7 @@ class U < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :usevents
+  has_many :events, through: :usevents
 end

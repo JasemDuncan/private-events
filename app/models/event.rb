@@ -16,4 +16,7 @@ class Event < ApplicationRecord
     # validates :attendees, presence: true
     # validates :location, presence: true    
     # validates :link, presence: true
+
+    has_many :usevents
+    has_many :us, through: :usevents
 end

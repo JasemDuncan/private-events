@@ -1,4 +1,9 @@
 <h1><%= @event.name%></h1>
+<% unless @event.usevents.nil? %>
+<p>
+    Event created by <%= @event.usevents%>
+</p>
+<% end %>
 <div>
     <%= @event.organizer%>
 </div>

@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-
+    before_action :authenticate_user!, except: [:show, :index]
+    before_action :set_event, except: [:index,:new, :create]
     #GET /events
     def index
         #Select * from Events
@@ -15,7 +16,8 @@ class EventsController < ApplicationController
     end
     
     def edit
-        @event=Event.find(params[:id])
+        #not necesario bacause of the before_action :set_event
+        # @event=Event.find(params[:id])
     end
     #POST /events
     def create
@@ -31,7 +33,7 @@ class EventsController < ApplicationController
     # delete "/events/:id" 
     def destroy
         #DELETE FROM events
-        @event=Event.find(params[:id])
+        # @event=Event.find(params[:id])
         @event.destroy #Destroy delete the object from the DB
         redirect_to events_path        
     end
@@ -39,7 +41,7 @@ class EventsController < ApplicationController
     def update
         #UPDATE
         #@event.update_attributes({name: 'New name event'})
-        @event=Event.find(params[:id])
+        # @event=Event.find(params[:id])
         if @event.update(article_params)
             redirect_to @event
         else
@@ -48,6 +50,11 @@ class EventsController < ApplicationController
     end
 
     private
+
+    def set_event
+        @event=Event.find(params[:id])
+    end
+
     def article_params
         params.require(:event).permit(:name, :organizer, :description, :typeof, :category, :tags, :datestart, :dateend, :timestart, :timeend, :attendees, :location, :image, :link)
     end
