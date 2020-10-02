@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_160145) do
+ActiveRecord::Schema.define(version: 2020_10_02_174527) do
 
   create_table "Events", force: :cascade do |t|
     t.text "name"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 2020_10_02_160145) do
     t.string "cover_content_type"
     t.bigint "cover_file_size"
     t.datetime "cover_updated_at"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "us", force: :cascade do |t|
