@@ -53,6 +53,14 @@
             <%= f.text_field :link, placeholder: "link", class:"form-control"%>
         </div>
         <div class="field">
+            <label > Categories</label>
+            <% @categories.each do |category|%>
+                <div class="field">
+                    <%= check_box_tag "categories[]", category.id%> <%= category.name%>
+                </div>                
+            <%end%>
+        </div>
+        <div class="field">
             <%= f.submit "Save", class:" btn be-red  white"%>
         </div>
     <%end%>

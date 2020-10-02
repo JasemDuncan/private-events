@@ -13,6 +13,7 @@ class EventsController < ApplicationController
     #GET /events/new
     def new
         @event=Event.new
+        @categories=Category.all
     end
     
     def edit
@@ -22,8 +23,8 @@ class EventsController < ApplicationController
     #POST /events
     def create
         #INSERT INTO
-        @event=Event.new(article_params)
-        
+        @event=current_u.events.new(event_params)
+        @event.categories=params[:categories]        
         if @event.save
             redirect_to @event
         else    
@@ -42,7 +43,7 @@ class EventsController < ApplicationController
         #UPDATE
         #@event.update_attributes({name: 'New name event'})
         # @event=Event.find(params[:id])
-        if @event.update(article_params)
+        if @event.update(event_params)
             redirect_to @event
         else
             render :edit
@@ -51,11 +52,11 @@ class EventsController < ApplicationController
 
     private
 
-    def set_event
+    def set_event 
         @event=Event.find(params[:id])
     end
 
-    def article_params
-        params.require(:event).permit(:name, :organizer, :description, :typeof, :category, :tags, :datestart, :dateend, :timestart, :timeend, :attendees, :location, :image, :link, :cover)
+    def event_params
+        params.require(:event).permit(:name, :organizer, :description, :typeof, :category, :tags, :datestart, :dateend, :timestart, :timeend, :attendees, :location, :image, :link, :cover, :categories)
     end
 end
