@@ -1,18 +1,25 @@
 <h1><%= @event.name%></h1>
 <% unless @event.usevents.nil? %>
-<p>
-    Event created by <%= @event.usevents%>
-</p>
+    <%# Event created by  %>
 <% end %>
+
+<div class="field">
+    <% @event.categories.each do |category| %>
+        <%= link_to category.name, category, style:"color:#{category.color}" %>
+    <% end %>
+</div>
+
 <div class="field">
     <%= image_tag @event.cover.url(:thumb)%>
 </div>
+
 <div>
     <%= @event.organizer%>
 </div>
-<div>
-    <%# <%= @event.categories %> %>
-</div>
+
 <div>
     <%= link_to "Edit", edit_event_path(@event)%>
+</div>
+<div>
+    <%= @event.organizer%> - <%= link_to "Delete",@event , method: :delete, class: "red" %> 
 </div>

@@ -10,14 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_215929) do
+ActiveRecord::Schema.define(version: 2020_10_04_003434) do
 
-  create_table "Events", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "events", force: :cascade do |t|
     t.text "name"
     t.text "organizer"
     t.text "description"
     t.text "typeof"
-    t.text "category"
     t.text "tags"
     t.date "datestart"
     t.date "dateend"
@@ -25,21 +31,13 @@ ActiveRecord::Schema.define(version: 2020_10_02_215929) do
     t.time "timeend"
     t.integer "attendees"
     t.string "location"
-    t.string "image"
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "cover_file_name"
     t.string "cover_content_type"
-    t.bigint "cover_file_size"
+    t.integer "cover_file_size"
     t.datetime "cover_updated_at"
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.string "color"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "has_categories", force: :cascade do |t|

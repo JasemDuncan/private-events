@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :us
 
   resources :events  
+  resources :us
+  resources :usevents, only:[:create, :new]
   # only: [:edit, :update, :show, :destory]
   # except:[delete]
   

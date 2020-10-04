@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     def new
         @event=Event.new
         @categories=Category.all
+        @hascategories=HasCategory.all
     end
     
     def edit
@@ -34,8 +35,11 @@ class EventsController < ApplicationController
     # delete "/events/:id" 
     def destroy
         #DELETE FROM events
-        # @event=Event.find(params[:id])
+        @event=Event.find(params[:id])
+        # @hascategory=HasCategory.find_by(event_id: @event)
         @event.destroy #Destroy delete the object from the DB
+        # @hascategory.destroy
+        
         redirect_to events_path        
     end
     #PUT /events/:id
@@ -57,6 +61,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-        params.require(:event).permit(:name, :organizer, :description, :typeof, :category, :tags, :datestart, :dateend, :timestart, :timeend, :attendees, :location, :image, :link, :cover, :categories)
+        params.require(:event).permit(:name, :organizer, :description, :typeof, :tags, :datestart, :dateend, :timestart, :timeend, :attendees, :location, :link, :cover, :categories)
     end
 end
