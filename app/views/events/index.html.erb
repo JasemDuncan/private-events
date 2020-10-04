@@ -10,7 +10,7 @@
                     <%= event.id  %> 
                 </div>
                 <div class="field">
-                    <%= event.organizer%> - <%= link_to "Register", usevents_path(event.id) , method: :post %> 
+                    <%= event.organizer%> - <%= link_to "Register", usevents_path(event_id: event.id) , method: :post %> 
                 </div>
             </div>
         </div>              

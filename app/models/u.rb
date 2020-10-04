@@ -6,4 +6,5 @@ class U < ApplicationRecord
 
   has_many :usevents
   has_many :events, through: :usevents
+  include PermissionsConcern
 end

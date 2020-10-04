@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
     before_action :authenticate_u!, except: [:show, :index]
     before_action :set_event, except: [:index,:new, :create]
+    # before_action :
     #GET /events
     def index
         #Select * from Events
