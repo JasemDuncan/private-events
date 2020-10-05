@@ -2,11 +2,12 @@ class EventsController < ApplicationController
     before_action :authenticate_u!, except: [:show, :index]
     before_action :set_event, except: [:index,:new, :create]
     before_action :authenticate_editor!, only: [:new, :create, :update]
-    before_action :authenticate_admin!, only: [:destroy]
+    before_action :authenticate_admin!, only: [:destroy, :publish]
     #GET /events
     def index
         #Select * from Events
-        @events=Event.all
+        # @events=Event.all
+        @events=Event.publicated.lastt
     end
     #GET /events/:id
     def show
@@ -54,6 +55,11 @@ class EventsController < ApplicationController
         else
             render :edit
         end
+    end
+    #PUT /events/:id
+    def publish
+        @event.publish!
+        redirect_to @event      
     end
 
     private

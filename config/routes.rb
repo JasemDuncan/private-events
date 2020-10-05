@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   #HTTP [protocol]
   #Verbs
   #GET POST PATCH PUT DELETE
+  get "/dashboard", to: "welcome#dashboard"
+  put "/events/:id/publish", to: "events#publish" 
 end

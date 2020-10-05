@@ -19,6 +19,15 @@ class Event < ApplicationRecord
     has_attached_file :cover, styles: {medium: "1080x520", thumb: "500x300"}
     validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
+    #Is the same
+    # def self.publicated
+    #     Event.where(state: "published")
+    # end
+    
+    #Add scopes
+    scope :publicated, -> {where(state: "published")}
+    scope :lastt, -> {order("created_at DESC").limit(10) }
+
     #Custom setter
     def categories=(value) 
         @categories=value
