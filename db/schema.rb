@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_04_025538) do
+ActiveRecord::Schema.define(version: 2020_10_04_234605) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_10_04_025538) do
     t.string "cover_content_type"
     t.integer "cover_file_size"
     t.datetime "cover_updated_at"
+    t.string "state", default: "in_draft"
   end
 
   create_table "has_categories", force: :cascade do |t|

@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+    include AASM
+
     #tablas => events
     #campos => event.name()
     #escribirmetodos 
@@ -21,6 +23,21 @@ class Event < ApplicationRecord
     def categories=(value) 
         @categories=value
     end
+    #aasm gem syntax
+    aasm column: "state" do
+        state :in_draft, initial: true
+        state :published
+
+        event :publish do
+            transitions from: :in_draft, to: :published
+        end
+
+        event :unpublish do
+            transitions from: :published, to: :in_draft
+        end
+
+    end
+
     private
     def save_categories
         @categories.each do |category_id|

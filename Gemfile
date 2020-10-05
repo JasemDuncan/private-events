@@ -37,6 +37,9 @@ gem "devise"
 #Add paperclicp for put images
 gem "paperclip"
 
+#Add AASM State machine
+gem "aasm"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
