@@ -23,10 +23,10 @@ class Event < ApplicationRecord
     # def self.publicated
     #     Event.where(state: "published")
     # end
-    
+
     #Add scopes
     scope :publicated, -> {where(state: "published")}
-    scope :lastt, -> {order("created_at DESC").limit(10) }
+    scope :lastt, -> {order("created_at DESC")}
 
     #Custom setter
     def categories=(value) 
