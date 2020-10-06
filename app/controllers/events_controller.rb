@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     def index
         #Select * from Events
         # @events=Event.all
-        @events=Event.paginate(page: params[:page], per_page: 4).publicated.lastt        
+        @events=Event.paginate(page: params[:page], per_page: 9).publicated.lastt        
     end
     #GET /events/:id
     def show

@@ -1,20 +1,11 @@
-<div class="row">
-    <% @events.each do |event|%>
-        <div class="col-xs-3">
-            <div class="box">
-                <h1><%= link_to event.name, event%></h1>
-                <div class="field">
-                    <%= image_tag event.cover.url(:thumb)%>
-                </div>
-                <div class="field">
-                    <%= event.id  %> 
-                </div>
-                <div class="field">
-                    <%= event.organizer%> - <%= link_to "Register", usevents_path(event_id: event.id) , method: :post %> 
-                </div>
-            </div>
-        </div>              
-    <%end%>
-</div>   
 
-<%= will_paginate @events%>
+<div class="container-fluid" style="margin:0 auto;">
+    <h1>Events</h1>
+    <div class="row">   
+        <%= render @events %>  
+    </div>   
+    <div class="top-space text-center">
+        <%= will_paginate @events%> 
+    </div>
+</div>
+

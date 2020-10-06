@@ -1,0 +1,25 @@
+<div class="col-md-3 top-space">
+    <div class="box relative article-height">
+        <div class="absolute article-height background-cover" style="background:url(<%= event.cover.url(:thumb)%>);top:0px; left:0px; width:100%;">                
+        </div>
+        <div class="absolute article-height background-cover" style="background:rgba(0,0,0,0.5);top:0px;left:0px; width:100%;">                
+        </div>
+        <div class="relative white text-center">
+            <h2><%= link_to event.name, event%></h2>
+            <p>
+                <%= truncate(event.description, length:60)%>
+            </p>
+        </div>
+        
+        
+        <div class="field">
+                <%= image_tag event.cover.url(:thumb)%>
+        </div>
+        <div class="field">
+            <%= event.id  %> 
+        </div>
+        <div class="field">
+            <%= event.organizer%> - <%= link_to "Register", usevents_path(event_id: event.id) , method: :post %> 
+        </div>
+    </div>
+</div>        
