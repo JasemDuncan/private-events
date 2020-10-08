@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   #get "special", to: "welcome#index"  #just rediring
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'welcome#index'
+  root 'events#index'
   #HTTP [protocol]
   #Verbs
   #GET POST PATCH PUT DELETE

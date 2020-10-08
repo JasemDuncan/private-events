@@ -15,6 +15,7 @@ class Event < ApplicationRecord
     has_many :categories, through: :has_categories
     
     after_create :save_categories #callback from the model
+    after_create :send_mail
 
     has_attached_file :cover, styles: {medium: "1080x520", thumb: "500x300"}
     validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
@@ -48,6 +49,10 @@ class Event < ApplicationRecord
     end
 
     private
+
+    def send_mail
+        EventMailer.new_event(self).deliver_later
+    end
     def save_categories
         @categories.each do |category_id|
             HasCategory.create(category_id: category_id, event_id: self.id)

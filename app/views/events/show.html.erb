@@ -1,4 +1,5 @@
 <article class="bottom-space">
+    <%# helper %>
     <%= event_cover @event.cover.url(:thumb)%>
     <div class="row center-xs">
         <div class="col-xs-12 ligth-border col-md-7">   
@@ -7,10 +8,7 @@
                 <%=link_to "Back", events_path, class:"underline"  %> - 
                 <span class="red"><%= time_ago_in_words( @event.created_at) %>ago </span> - 
                 <span class="red"><%= @event.organizer%></span> - 
-                <% array=[] %>
-                <% array=U.joins(:usevents).select("Us.email").where(usevents: {event_id: @event.id }) %>
-                <%= array[0].email  %>
-                <%= array[1]  %>
+
             </p>
 
             <div class="field">
