@@ -26,11 +26,26 @@ a,a:visited{
 .text-center{
   text-align: center;
 }
+.text-right{
+  text-align: right;
+}
+.text-justify{
+  text-align: justify;
+}
 .red{
   color: #230A59 !important; 
 }
 .blue {
-  color: blue !important;
+  color: #66CCFF !important;
+}
+.be-big{
+  font-size: 2em;
+}
+.be-small{
+  font-size: 12px;
+}
+.underline{
+  text-decoration: underline;
 }
 .be-red{
  background-color: #230A59;
@@ -39,7 +54,9 @@ a,a:visited{
 .white{
   color:white;
 }
-
+.grey {
+  color: #616161
+}
 .large-padding{
   padding:8px 5px;
 }
@@ -49,6 +66,9 @@ li{
 }
 .field, .top-space, .actions{
   margin-top:1em;
+}
+.hidden{
+  display: none !important;
 }
 .background-cover{
   background-position: center;
@@ -74,4 +94,7 @@ li{
    display: block;
    padding: 10px 0px;
    font-size: 1.2em;
+}
+.bottom-space{
+  margin-bottom: 2em;
 }

@@ -1,26 +1,49 @@
-<h1><%= @event.name%></h1>
+<article class="bottom-space">
+    <%= event_cover @event.cover.url(:thumb)%>
+    <div class="row center-xs">
+        <div class="col-xs-12 ligth-border col-md-7">   
+            <h1 class="be-big blue"> <%= @event.name %> </h1>            
+            <p class="text-right be-small"> 
+                <%=link_to "Back", events_path, class:"underline"  %> - 
+                <span class="red"><%= time_ago_in_words( @event.created_at) %>ago </span> - 
+                <span class="red"><%= @event.organizer%></span> - 
+                <% array=[] %>
+                <% array=U.joins(:usevents).select("Us.email").where(usevents: {event_id: @event.id }) %>
+                <%= array[0].email  %>
+                <%= array[1]  %>
+            </p>
+
+            <div class="field">
+                <% @event.categories.each do |category| %>
+                    <%= link_to category.name, category, style:"color:#{category.color}" %>
+                <% end %>
+            </div>
+            <div class="field">
+                <%= image_tag @event.cover.url(:thumb)%>
+            </div>
+            <div class="text-justify">
+                <%= @event.description %>
+            </div>
+
+            <div class="field">
+
+
+            </div>
+
+            <div>
+                <%= @event.organizer%> - 
+                <%= link_to "Edit", edit_event_path(@event) %> - 
+                <%= link_to "Delete",@event , method: :delete, class: "red" %> 
+            </div>
+
+        </div>
+    </div>
+</article>
 <% unless @event.usevents.nil? %>
-    <%# Event created by  %>
+    <%=  @event.usevents.nil?%>
 <% end %>
 
-<div class="field">
-    <% @event.categories.each do |category| %>
-        <%= link_to category.name, category, style:"color:#{category.color}" %>
-    <% end %>
-</div>
 
-<div class="field">
-    <%= image_tag @event.cover.url(:thumb)%>
-</div>
 
-<div>
-    <%= @event.organizer%>
-</div>
 
-<div>
-    <%= link_to "Edit", edit_event_path(@event)%>
-</div>
-<div>
-    <%= @event.organizer%> - <%= link_to "Delete",@event , method: :delete, class: "red" %> 
-</div>
 
