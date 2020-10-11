@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body> 
+        <h1><%= @event.name %></h1>
+        <p>
+            <%= truncate(@event.description, length:30) %>
+        </p>    
+        <p>
+            <%= link_to "Read more", event_url(@event) %>
+        </p>       
+    </body>
+</html>

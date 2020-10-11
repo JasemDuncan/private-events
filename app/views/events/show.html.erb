@@ -1,0 +1,47 @@
+<article class="bottom-space">
+    <%# helper %>
+    <%= event_cover @event.cover.url(:thumb)%>
+    <div class="row center-xs">
+        <div class="col-xs-12 ligth-border col-md-7">   
+            <h1 class="be-big blue"> <%= @event.name %> </h1>            
+            <p class="text-right be-small"> 
+                <%=link_to "Back", events_path, class:"underline"  %> - 
+                <span class="red"><%= time_ago_in_words( @event.created_at) %>ago </span> - 
+                <span class="red"><%= @event.organizer%></span> - 
+
+            </p>
+
+            <div class="field">
+                <% @event.categories.each do |category| %>
+                    <%= link_to category.name, category, style:"color:#{category.color}" %>
+                <% end %>
+            </div>
+            <div class="field">
+                <%= image_tag @event.cover.url(:thumb)%>
+            </div>
+            <div class="text-justify">
+                <%= @event.description %>
+            </div>
+
+            <div class="field">
+
+
+            </div>
+
+            <div>
+                <%= @event.organizer%> - 
+                <%= link_to "Edit", edit_event_path(@event) %> - 
+                <%= link_to "Delete",@event , method: :delete, class: "red" %> 
+            </div>
+
+        </div>
+    </div>
+</article>
+<% unless @event.usevents.nil? %>
+    <%=  @event.usevents.nil?%>
+<% end %>
+
+
+
+
+

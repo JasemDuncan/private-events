@@ -1,0 +1,11 @@
+
+<div class="container-fluid" style="margin:0 auto;">
+    <h1>Events</h1>
+    <div class="row">   
+        <%= render @events %>  
+    </div>   
+    <div class="top-space text-center">
+        <%= will_paginate @events%> 
+    </div>
+</div>
+
